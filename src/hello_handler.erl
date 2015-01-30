@@ -22,4 +22,4 @@ handle(Req, State=#state{}) ->
 terminate(_Reason, _Req, _State) ->
 	ok.
 
-a_test() -> ok.
+a_test() -> 1 =:= 2.
