@@ -22,4 +22,4 @@ handle(Req, State=#state{}) ->
 terminate(_Reason, _Req, _State) ->
 	ok.
 
-a_test() -> 1 =:= 2.
+a_test() -> ?assertEqual(true, 1 =:= 2).
