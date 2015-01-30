@@ -1,5 +1,6 @@
 -module(hello_handler).
 -behaviour(cowboy_http_handler).
+-include("global.hrl").
 
 -export([init/3]).
 -export([handle/2]).
@@ -20,3 +21,5 @@ handle(Req, State=#state{}) ->
 
 terminate(_Reason, _Req, _State) ->
 	ok.
+
+a_test() -> ok.
