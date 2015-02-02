@@ -1,1 +1,2 @@
+-define(NOTEST, true).
 -include_lib("eunit/include/eunit.hrl").
