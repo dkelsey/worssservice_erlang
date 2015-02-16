@@ -1,5 +1,5 @@
 {application, worssservice_erlang, [
-	{description, "WhiteOps RSS Service"},
+	{description, "WhiteOps RSS Word Count Service"},
 	{vsn, "0.1.0"},
 	{id, "git"},
 	{modules, []},
@@ -7,6 +7,8 @@
 	{applications, [
 		kernel,
 		stdlib,
+		jiffy,
+		rss_wc,
 		cowboy
 	]},
 	{mod, {worssservice_erlang_app, []}},

@@ -13,11 +13,16 @@ init(_, Req, _Opts) ->
 	{ok, Req, #state{}}.
 
 handle(Req, State=#state{}) ->
-        {ok, Req2} = cowboy_req:reply(200,
-        [{<<"content-type">>, <<"text/plain">>}],
-        <<"Hello Erlang! How's it hangin Yo?">>,
-        Req),
-        {ok, Req2, State}.
+		{Uri, Req2} = cowboy_req:qs_val(<<"fetch">>, Req),
+		rss_wc:decode_uri(Uri),
+		receive
+			{_, {ok, JSON}} -> 
+		        {ok, Req3} = cowboy_req:reply(200,
+		        [{<<"content-type">>, <<"application/json">>}],
+		        [JSON],
+		        Req2),
+  				{ok, Req3, State}
+		end.
 
 terminate(_Reason, _Req, _State) ->
 	ok.
