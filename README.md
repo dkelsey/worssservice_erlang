@@ -11,26 +11,47 @@ This is a cowboy web service which accepts a `GET` request with the parameter 'f
 ```bash
 mkdir proj && cd proj
 git clone https://github.com/dkelsey/worssservice_erlang.git
-cd worssservice_erlang
+cd worssservice_erlang/
+make deps
+cd deps/rss_wc/
+make deps
+make clean app
+make rel
+./relx release
+cd ../../
 make clean app
 make rel
 ./relx release tar
+mkdir tmp
+cp stopwords.txt tmp/
+cd tmp/
+gzcat ../_rel/worssservice_erlang_release/worssservice_erlang_release-1.tar.gz | tar xvf -
+./bin/worssservice_erlang_release console
+Exec: ...
+...
+...
+Erlang/OTP 17 [erts-6.3] [source-f9282c6] [64-bit] [smp:4:4] [async-threads:10] [hipe] [kernel-poll:false]
+
+Eshell V6.3  (abort with ^G)
+(worssservice_erlang@127.0.0.1)1> application:which_applications().
+[{worssservice_erlang,"WhiteOps RSS Word Count Service",
+                      "0.1.0"},
+ {cowboy,"Small, fast, modular HTTP server.","1.0.1"},
+ {rss_wc,"RSS Word Count Application","0.1.0"},
+ {cowlib,"Support library for manipulating Web protocols.",
+         "1.0.1"},
+ {jiffy,"JSON Decoder/Encoder.","0.13.3-2-g801f9e7"},
+ {xmerl,"XML parser","1.3.7"},
+ {inets,"INETS  CXC 138 49","5.10.4"},
+ {crypto,"CRYPTO","3.4.2"},
+ {ranch,"Socket acceptor pool for TCP protocols.","1.1.0"},
+ {stdlib,"ERTS  CXC 138 10","2.3"},
+ {kernel,"ERTS  CXC 138 10","3.1"}]
+(worssservice_erlang@127.0.0.1)2> q()
 ```
 
-This will create a release and package it in a tar: `_rel/rss_wc/rss_wc-1.tar.gz`.
-This can be copied to a location of your choosing and extracted with:
-
-```
-gzcat rss_wc-1.tar.gz | tar xvf -
-```
-This will create: 
-```
-bin
-erts-6.3
-lib
-log
-releases
-```
+I've not included the output from the commands above but you will see that this will create a release and package it in a tar: `_rel/worssservice_erlang_release/worssservice_erlang_release-1.tar.gz`.
+This can be copied to a location of your choosing, extracted and run.
 You will need a [stopwords.txt](https://github.com/dkelsey/worssservice_erlang/blob/master/stopwords.txt) file in the directory from which you start the application.
 To start the application run the following command:
 ```
@@ -42,7 +63,7 @@ Erlang/OTP 17 [erts-6.3] [source-f9282c6] [64-bit] [smp:4:4] [async-threads:10] 
 Eshell V6.3  (abort with ^G)
 (worssservice_erlang@127.0.0.1)1> 
 ```
-To verify further that the application and all dependancies were started run the following command:
+To verify further that the application and all dependencies were started run the following command:
 ```
 (worssservice_erlang@127.0.0.1)1> application:which_applications().
 [{worssservice_erlang,"WhiteOps RSS Service","0.1.0"},
@@ -64,13 +85,13 @@ run `./bin/worssservice_erlang_release` without options to see available startup
 
 #Usage
 
-In your favourite browser navigate to:
+After installing and running the server, in your favourite browser navigate to:
 ```
-http://localhost:8081?fetch=http%3A%2F%2Fdigg.com%2Frss%2Ftop.rss
+http://localhost:8080?fetch=http%3A%2F%2Fdigg.com%2Frss%2Ftop.rss
 ```
 or 
 ```
-http://localhost:8081?fetch=http%3A%2F%2Frss.nytimes.com%2Fservices%2Fxml%2Frss%2Fnyt%2FHomePage.xml
+http://localhost:8080?fetch=http%3A%2F%2Frss.nytimes.com%2Fservices%2Fxml%2Frss%2Fnyt%2FHomePage.xml
 ```
 you should get back something that looks like:
 ```json
