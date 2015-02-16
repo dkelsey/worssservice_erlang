@@ -72,12 +72,100 @@ or
 ```
 http://localhost:8081?fetch=http%3A%2F%2Frss.nytimes.com%2Fservices%2Fxml%2Frss%2Fnyt%2FHomePage.xml
 ```
-you should get back:
-```javascript
-{"words":[{"word":"new","count":11},{"word":"one","count":10},{"word":"from","count":9},{"word":"has","count":9},{"word":"have","count":8},{"word":"had","count":7},{"word":"so","count":7},{"word":"than","count":7},{"word":"he","count":6},{"word":"other","count":6}],"stopWordsIgnored":463}
+you should get back something that looks like:
+```json
+{
+	"words":[
+		{
+			"word":"new",
+			"count":11
+		},
+		{
+			"word":"one",
+			"count":10
+		},
+		{
+			"word":"from",
+			"count":9
+		},
+		{
+			"word":"has",
+			"count":9
+		},
+		{
+			"word":"have",
+			"count":8
+		},
+		{
+			"word":"had",
+			"count":7
+		},
+		{
+			"word":"so",
+			"count":7
+		},
+		{
+			"word":"than",
+			"count":7
+		},
+		{
+			"word":"he",
+			"count":6
+		},
+		{
+			"word":"other",
+			"count":6
+		}
+	],
+	"stopWordsIgnored":463
+}
 ```
 or respectively
-```javascript
-{"words":[{"word":"border","count":90},{"word":"src","count":90},{"word":"href","count":56},{"word":"\"nofollow\"><img","count":42},{"word":"rel","count":42},{"word":"'1'","count":40},{"word":"height","count":34},{"word":"width","count":34},{"word":"\"0\"/></a><br/><a","count":28},{"word":"\"1\"","count":28}],"stopWordsIgnored":155}
+```json
+{
+	"words":[
+		{
+			"word":"border",
+			"count":90
+		},
+		{
+			"word":"src",
+			"count":90
+		},
+		{
+			"word":"href",
+			"count":56
+		},
+		{
+			"word":"\"nofollow\"><img",
+			"count":42
+		},
+		{
+			"word":"rel",
+			"count":42
+		},
+		{
+			"word":"'1'",
+			"count":40
+		},
+		{
+			"word":"height",
+			"count":34
+		},
+		{
+			"word":"width",
+			"count":34
+		},
+		{
+			"word":"\"0\"/></a><br/><a",
+			"count":28
+		},
+		{
+			"word":"\"1\"",
+			"count":28
+		}
+	],
+	"stopWordsIgnored":155
+}
 ```
 
