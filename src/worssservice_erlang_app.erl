@@ -8,7 +8,7 @@ start(_Type, _Args) ->
         Dispatch = cowboy_router:compile([
             {'_', [{"/", rss_handler, []}]}
         ]),
-        cowboy:start_http(my_http_listener, 100, [{port, 8081}],
+        cowboy:start_http(my_http_listener, 100, [{port, 8080}],
             [{env, [{dispatch, Dispatch}]}]
         ),
 	worssservice_erlang_sup:start_link().
