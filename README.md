@@ -200,4 +200,4 @@ or respectively
 
 #Notes
 
-More detail can be found in [rss_wc](https://github.com/dkelsey/worssservice_erlang/blob/master/stopwords.txt)
+More detail can be found in [rss_wc](https://github.com/dkelsey/rss_wc)
