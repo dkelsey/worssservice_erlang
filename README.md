@@ -191,3 +191,13 @@ or respectively
 ```
 
 #Todo
+
+* integrate StatsD
+* add logging
+* perform more thorough testing and fill out unit tests.
+* add a basic automated acceptance test : this was started but not completed.
+* perform load testing 
+
+#Notes
+
+More detail can be found in [rss_wc](https://github.com/dkelsey/worssservice_erlang/blob/master/stopwords.txt)
