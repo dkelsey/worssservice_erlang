@@ -31,13 +31,13 @@ lib
 log
 releases
 ```
-You will need a `stopwords.txt` file in the directory from which you start the application.
+You will need a [stopwords.txt](https://github.com/dkelsey/worssservice_erlang/blob/master/stopwords.txt) file in the directory from which you start the application.
 To start the application run the following command:
 ```
 ./bin/worssservice_erlang_release console
 ...
 ...
-Erlang/OTP 17 \[erts-6.3] \[source-f9282c6] \[64-bit] \[smp:4:4] \[async-threads:10] \[hipe] \[kernel-poll:false]
+Erlang/OTP 17 [erts-6.3] [source-f9282c6] [64-bit] [smp:4:4] [async-threads:10] [hipe] [kernel-poll:false]
 
 Eshell V6.3  (abort with ^G)
 (worssservice_erlang@127.0.0.1)1> 
@@ -169,3 +169,4 @@ or respectively
 }
 ```
 
+#Todo
