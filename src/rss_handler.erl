@@ -1,4 +1,4 @@
--module(hello_handler).
+-module(rss_handler).
 -behaviour(cowboy_http_handler).
 -include("global.hrl").
 
