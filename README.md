@@ -1,12 +1,12 @@
-#worssservice_erlang
+# worssservice_erlang
 
 A cowboy based web service that performs a word-count on item description for RSS XML sources.
 
-#Details
+# Details
 
 This is a cowboy web service which accepts a `GET` request with the parameter 'fetch' which contains the URI of an RSS XML file.  The service passes the request onto the `rss_wc` application for processing.  The `rss_wc` service processes the request and returns a word-count in JSON for the top 10 occurring words, and a total of filtered stop-words.  For more detail on the workings of `rss_wc` see: [rss_wc on Github](https://github.com/dkelsey/rss_wc)
 
-#Installation
+# Installation
 
 ```bash
 mkdir proj && cd proj
@@ -54,7 +54,8 @@ I've not included the output from the commands above but you will see that this 
 This can be copied to a location of your choosing, extracted and run.
 You will need a [stopwords.txt](https://github.com/dkelsey/worssservice_erlang/blob/master/stopwords.txt) file in the directory from which you start the application.
 To start the application run the following command:
-```
+
+```bash
 ./bin/worssservice_erlang_release console
 ...
 ...
@@ -83,7 +84,7 @@ To verify further that the application and all dependencies were started run the
 
 run `./bin/worssservice_erlang_release` without options to see available startup options.
 
-#Usage
+# Usage
 
 After installing and running the server, in your favourite browser navigate to:
 ```
