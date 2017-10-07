@@ -191,7 +191,7 @@ or respectively
 }
 ```
 
-#Todo
+# Todo
 
 * integrate StatsD
 * add logging
@@ -199,6 +199,6 @@ or respectively
 * add a basic automated acceptance test : this was started but not completed.
 * perform load testing 
 
-#Notes
+# Notes
 
 More detail can be found in [rss_wc](https://github.com/dkelsey/rss_wc)
